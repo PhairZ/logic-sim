@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://xjxlk2qmumu0"]
+
+[ext_resource type="PackedScene" uid="uid://dypgu5ugmosbt" path="res://scenes/components/base_component.tscn" id="1_vchwg"]
+[ext_resource type="Script" uid="uid://d17bcputdpmuu" path="res://scripts/user_component.gd" id="2_0ohby"]
+
+[node name="UserComponent" instance=ExtResource("1_vchwg")]
+script = ExtResource("2_0ohby")
+logic = null

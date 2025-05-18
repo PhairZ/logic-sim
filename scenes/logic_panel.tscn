@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6yx30n0a22xx"]
+
+[ext_resource type="Script" uid="uid://c48rbdxydmi6h" path="res://scripts/logic_panel.gd" id="1_bm7rh"]
+
+[node name="LogicPanel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"LogicPanel"
+script = ExtResource("1_bm7rh")
+
+[node name="Input" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_right = 12.0
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Output" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_right = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[connection signal="gui_input" from="Input" to="." method="_on_in_gui_input"]
+[connection signal="gui_input" from="Output" to="." method="_on_out_gui_input"]

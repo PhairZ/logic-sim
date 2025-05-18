@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4r06ed0eh0q8"]
+
+[ext_resource type="Script" uid="uid://baywio84ncv50" path="res://scripts/connection_point.gd" id="1_h4tgg"]
+
+[node name="ConnectionPoint" type="Button" groups=["connection_point"]]
+custom_minimum_size = Vector2(10, 10)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_type_variation = &"ConnectionPoint"
+action_mode = 0
+keep_pressed_outside = true
+script = ExtResource("1_h4tgg")

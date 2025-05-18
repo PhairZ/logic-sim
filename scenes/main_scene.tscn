@@ -1,0 +1,171 @@
+[gd_scene load_steps=12 format=3 uid="uid://crsbbqpce1h1w"]
+
+[ext_resource type="Script" uid="uid://cjppb8cuysceh" path="res://scripts/master.gd" id="1_c16ls"]
+[ext_resource type="PackedScene" uid="uid://b1plp2e5g4ulg" path="res://scenes/drag_component.tscn" id="2_pu3yx"]
+[ext_resource type="PackedScene" uid="uid://c03md4bfp65bm" path="res://scenes/components/gates/and_gate.tscn" id="4_gubc5"]
+[ext_resource type="PackedScene" uid="uid://s6iuqlevqg6c" path="res://scenes/components/gates/not_gate.tscn" id="4_pu3yx"]
+[ext_resource type="PackedScene" uid="uid://cr50gofto6jwa" path="res://scenes/components/gates/splitter.tscn" id="5_gubc5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pw63i"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.272633, 0.650015, 0.214308, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ykc4"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.154667, 0.25, 0.14, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2twt"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.208313, 0.499077, 0.163629, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_w2twt"]
+content_margin_left = 0.0
+content_margin_top = 4.0
+content_margin_right = 0.0
+content_margin_bottom = 4.0
+color = Color(0.5, 0.5, 0.5, 1)
+grow_begin = -4.0
+grow_end = -4.0
+thickness = 2
+vertical = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pu3yx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu3yx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+draw_center = false
+border_width_bottom = 4
+border_color = Color(0.8, 0.8, 0.8, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="MainScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c16ls")
+comp_scenes = Array[PackedScene]([ExtResource("4_gubc5"), ExtResource("4_pu3yx"), ExtResource("5_gubc5")])
+
+[node name="Components" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.938
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.175964
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Components"]
+layout_mode = 2
+
+[node name="CreateComponent" type="Button" parent="Components/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_pw63i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7ykc4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w2twt")
+text = "CREATE"
+
+[node name="VSeparator" type="VSeparator" parent="Components/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_w2twt")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Components/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Components/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AndDrag" parent="Components/HBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("2_pu3yx")]
+layout_mode = 2
+text = "AND"
+idx = 0
+
+[node name="NotDrag" parent="Components/HBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("2_pu3yx")]
+layout_mode = 2
+text = "NOT"
+idx = 1
+
+[node name="SplitDrag" parent="Components/HBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("2_pu3yx")]
+layout_mode = 2
+text = "SPLT"
+idx = 2
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.028
+anchor_top = 0.099
+anchor_right = 0.972
+anchor_bottom = 0.914
+offset_left = -0.256001
+offset_top = -0.152
+offset_right = 0.255981
+offset_bottom = -0.271973
+grow_horizontal = 2
+
+[node name="NameEdit" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.028
+anchor_top = 0.012
+anchor_right = 0.028
+anchor_bottom = 0.085
+offset_left = -0.256001
+offset_top = 0.224
+offset_right = 111.744
+offset_bottom = -0.0800018
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pu3yx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pu3yx")
+placeholder_text = "Component Name"
+expand_to_text_length = true
+emoji_menu_enabled = false
+middle_mouse_paste_enabled = false
+select_all_on_focus = true
+caret_blink = true
+
+[connection signal="pressed" from="Components/HBoxContainer/CreateComponent" to="." method="_on_create_component_pressed"]
+[connection signal="comp_instantiate_request" from="Components/HBoxContainer/ScrollContainer/HBoxContainer/AndDrag" to="." method="on_comp_instantiate_request"]
+[connection signal="comp_instantiate_request" from="Components/HBoxContainer/ScrollContainer/HBoxContainer/NotDrag" to="." method="on_comp_instantiate_request"]
+[connection signal="comp_instantiate_request" from="Components/HBoxContainer/ScrollContainer/HBoxContainer/SplitDrag" to="." method="on_comp_instantiate_request"]
+[connection signal="text_submitted" from="NameEdit" to="." method="_on_create_component_pressed" unbinds=1]

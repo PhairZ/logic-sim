@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr50gofto6jwa"]
+
+[ext_resource type="PackedScene" uid="uid://dypgu5ugmosbt" path="res://scenes/components/base_component.tscn" id="1_j6xtp"]
+
+[sub_resource type="GDScript" id="GDScript_j6xtp"]
+resource_name = "splitter"
+script/source = "extends Component
+
+
+func _ready() -> void:
+	input_updated.connect(func() -> void: output = 0b11 if input else 0b0)
+"
+
+[node name="Splitter" instance=ExtResource("1_j6xtp")]
+offset_right = 72.0
+script = SubResource("GDScript_j6xtp")
+component_name = &"SPLT"
+inputs = 1
+outputs = 2
+
+[node name="Name" parent="LabelMargin" index="0"]
+text = "SPLT"

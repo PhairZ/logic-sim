@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1plp2e5g4ulg"]
+
+[ext_resource type="Script" uid="uid://bo1bm71dtovem" path="res://scripts/drag_component.gd" id="1_834dv"]
+
+[node name="DragComponent" type="Button"]
+custom_minimum_size = Vector2(40, 0)
+offset_right = 40.0
+offset_bottom = 31.0
+size_flags_vertical = 4
+text = "NAME"
+script = ExtResource("1_834dv")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://s6iuqlevqg6c"]
+
+[ext_resource type="PackedScene" uid="uid://dypgu5ugmosbt" path="res://scenes/components/base_component.tscn" id="1_fknpt"]
+
+[sub_resource type="GDScript" id="GDScript_fknpt"]
+resource_name = "not_gate"
+script/source = "extends Component
+
+
+func _ready() -> void:
+	input_updated.connect(func() -> void: output = ~(input))
+"
+
+[node name="NotGate" instance=ExtResource("1_fknpt")]
+script = SubResource("GDScript_fknpt")
+component_name = &"NOT"
+inputs = 1
+outputs = 1
+
+[node name="Name" parent="LabelMargin" index="0"]
+text = "NOT"

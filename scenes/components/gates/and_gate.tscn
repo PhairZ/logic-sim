@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c03md4bfp65bm"]
+
+[ext_resource type="PackedScene" uid="uid://dypgu5ugmosbt" path="res://scenes/components/base_component.tscn" id="1_3q0u1"]
+
+[sub_resource type="GDScript" id="GDScript_3q0u1"]
+resource_name = "and_gate"
+script/source = "extends Component
+
+
+func _ready() -> void:
+	input_updated.connect(func() -> void: output = 0b1 if input == 0b11 else 0b0)
+"
+
+[node name="AndGate" instance=ExtResource("1_3q0u1")]
+script = SubResource("GDScript_3q0u1")
+component_name = &"AND"
+inputs = 2
+outputs = 1
+
+[node name="Name" parent="LabelMargin" index="0"]
+text = "AND"
