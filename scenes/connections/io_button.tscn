@@ -1,24 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://bceo2vmyl5f2s"]
+[gd_scene load_steps=3 format=3 uid="uid://bceo2vmyl5f2s"]
 
-[sub_resource type="GDScript" id="GDScript_by77s"]
-resource_name = "io_switch"
-script/source = "extends ConnectionPoint
+[ext_resource type="PackedScene" uid="uid://c4r06ed0eh0q8" path="res://scenes/connections/connection_point.tscn" id="1_7gnot"]
+[ext_resource type="Script" uid="uid://dvp0bvmxypwbr" path="res://scripts/io_button.gd" id="1_ovohg"]
 
-
-func _ready() -> void:
-	self.toggled.connect(_on_toggled)
-	flipped.connect(func(_a: int) -> void: self.button_pressed = bit)
-
-
-func _on_toggled(toggled_on: bool) -> void:
-	if bit != toggled_on:
-		bit = toggled_on
-"
-
-[node name="IOButton" type="Button" groups=["connection_point"]]
+[node name="IOButton" type="Button"]
+z_index = 1
 custom_minimum_size = Vector2(24, 24)
-offset_right = 16.0
-offset_bottom = 16.0
+offset_right = 8.0
+offset_bottom = 8.0
 theme_type_variation = &"IOButton"
 toggle_mode = true
-script = SubResource("GDScript_by77s")
+script = ExtResource("1_ovohg")
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -1
+points = PackedVector2Array(23, 12, 29, 12)
+width = 4.0
+default_color = Color(0.05, 0.05, 0.05, 1)
+
+[node name="ConnectionPoint" parent="." instance=ExtResource("1_7gnot")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -6.0
+offset_right = 28.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2

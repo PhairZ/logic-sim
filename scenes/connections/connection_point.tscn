@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://baywio84ncv50" path="res://scripts/connection_point.gd" id="1_h4tgg"]
 
-[node name="ConnectionPoint" type="Button" groups=["connection_point"]]
-custom_minimum_size = Vector2(10, 10)
+[node name="ConnectionPoint" type="Button"]
+custom_minimum_size = Vector2(12, 12)
 offset_right = 8.0
 offset_bottom = 8.0
 theme_type_variation = &"ConnectionPoint"

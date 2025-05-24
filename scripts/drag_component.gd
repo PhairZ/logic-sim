@@ -11,4 +11,7 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
+	if Master.inspecting:
+		return
+	
 	comp_instantiate_request.emit(idx)

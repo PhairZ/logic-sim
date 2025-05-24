@@ -6,16 +6,17 @@
 resource_name = "and_gate"
 script/source = "extends Component
 
-
 func _ready() -> void:
-	input_updated.connect(func() -> void: output = 0b1 if input == 0b11 else 0b0)
+	input_updated.connect(func() -> void: output = 0b0 if input == 0b11 else 0b1)
 "
 
-[node name="AndGate" instance=ExtResource("1_3q0u1")]
+[node name="NandGate" instance=ExtResource("1_3q0u1")]
+offset_right = 51.0
 script = SubResource("GDScript_3q0u1")
-component_name = &"AND"
+component_name = &"NAND"
+component_color = Color(0.504, 0, 0.72, 1)
 inputs = 2
 outputs = 1
 
 [node name="Name" parent="LabelMargin" index="0"]
-text = "AND"
+text = "NAND"
