@@ -1,5 +1,6 @@
 class_name LogicPanel extends Control
 
+signal output_updated()
 signal comp_instantiate_request()
 
 @export var inputs: int = 2:
@@ -43,12 +44,9 @@ var connecting_line: Line2D = null
 var connecting_to: ConnectionPoint = null
 
 var output: int = 0:
-	get():
-		output = 0
-		for button: IOButton in out_cont.get_children():
-			output |= int(button.connection_point.bit) << button.get_index()
-		
-		return output
+	set(value):
+		output = value
+		output_updated.emit()
 
 var input: int = 0:
 	set(value):
@@ -99,6 +97,11 @@ func _update_output(value: int) -> void:
 			button.owner = self
 			button.connection_point.start_connection.connect(
 				start_connection.bind(button.connection_point)
+			)
+			button.connection_point.flipped.connect(
+				func(bit: bool) -> void:
+					output &= ~(1 << button.get_index())
+					output |= (int(bit) << button.get_index())
 			)
 			
 			connection_points.append(button.connection_point)
@@ -173,6 +176,9 @@ func _is_mouse_over_point(point: ConnectionPoint) -> bool:
 	return point.get_global_rect().has_point(get_global_mouse_position())
 
 func _on_in_gui_input(event: InputEvent) -> void:
+	if Master.inspecting:
+		return
+	
 	if event is InputEventMouseButton:
 		if not connecting_from:
 			if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
@@ -181,6 +187,9 @@ func _on_in_gui_input(event: InputEvent) -> void:
 				inputs -= 1
 
 func _on_out_gui_input(event: InputEvent) -> void:
+	if Master.inspecting:
+		return
+	
 	if event is InputEventMouseButton:
 		if not connecting_from:
 			if event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():

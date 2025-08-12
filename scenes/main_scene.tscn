@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://b1plp2e5g4ulg" path="res://scenes/drag_component.tscn" id="2_pu3yx"]
 [ext_resource type="PackedScene" uid="uid://c03md4bfp65bm" path="res://scenes/components/nand_gate.tscn" id="4_gubc5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pw63i"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2twt"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.272633, 0.650015, 0.214308, 1)
+bg_color = Color(0.208313, 0.499077, 0.163629, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -28,12 +28,12 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2twt"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pw63i"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.208313, 0.499077, 0.163629, 1)
+bg_color = Color(0.272633, 0.650015, 0.214308, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -51,7 +51,20 @@ grow_end = -4.0
 thickness = 2
 vertical = true
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pu3yx"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu3yx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+draw_center = false
+border_width_bottom = 4
+border_color = Color(0.8, 0.8, 0.8, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gubc5"]
 content_margin_left = 4.0
@@ -68,20 +81,7 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu3yx"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-draw_center = false
-border_width_bottom = 4
-border_color = Color(0.8, 0.8, 0.8, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-anti_aliasing = false
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pu3yx"]
 
 [node name="MainScene" type="Control"]
 layout_mode = 3
@@ -109,9 +109,9 @@ layout_mode = 2
 [node name="CreateComponent" type="Button" parent="Components/HBoxContainer"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-theme_override_styles/hover = SubResource("StyleBoxFlat_pw63i")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7ykc4")
 theme_override_styles/normal = SubResource("StyleBoxFlat_w2twt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7ykc4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pw63i")
 text = "CREATE"
 
 [node name="VSeparator" type="VSeparator" parent="Components/HBoxContainer"]
@@ -161,9 +161,9 @@ offset_right = 111.744
 offset_bottom = -0.0800018
 theme_override_colors/font_uneditable_color = Color(0.8, 0.8, 0.8, 0.784314)
 theme_override_font_sizes/font_size = 28
-theme_override_styles/focus = SubResource("StyleBoxEmpty_pu3yx")
-theme_override_styles/read_only = SubResource("StyleBoxFlat_gubc5")
 theme_override_styles/normal = SubResource("StyleBoxFlat_pu3yx")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_gubc5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pu3yx")
 placeholder_text = "Component Name"
 expand_to_text_length = true
 emoji_menu_enabled = false

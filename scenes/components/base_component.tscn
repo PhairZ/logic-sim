@@ -7,8 +7,8 @@
 [node name="BaseComponent" type="PanelContainer"]
 z_index = 1
 custom_minimum_size = Vector2(0, 32)
-offset_right = 13.0
-offset_bottom = 23.0
+offset_right = 17.0
+offset_bottom = 32.0
 theme_type_variation = &"Component"
 script = ExtResource("1_6ykhq")
 component_color = Color(0.72, 0, 0, 1)
@@ -43,9 +43,9 @@ alignment = 1
 [node name="OutputMargin" type="MarginContainer" parent="."]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_top = 4
+theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = -6
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_bottom = 2
 
 [node name="OutputConnections" type="VBoxContainer" parent="OutputMargin"]
 layout_mode = 2

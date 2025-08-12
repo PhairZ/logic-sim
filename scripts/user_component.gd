@@ -15,12 +15,22 @@ var logic: LogicPanel:
 			inputs = value.inputs
 			outputs = value.outputs
 			
-			get_tree().physics_frame.connect(input_updated.emit)
+			var on_output_update: Callable = func() -> void:
+				output = value.output
+				print(output)
+			
+			value.output_updated.connect(on_output_update)
 			
 			input_updated.connect(
 				func() -> void:
+					if value.output_updated.is_connected(on_output_update):
+						value.output_updated.disconnect(on_output_update)
+					
 					value.input = input
 					output = value.output
+					
+					if not value.output_updated.is_connected(on_output_update):
+						value.output_updated.connect(on_output_update)
 			)
 			
 			tree_exited.connect(logic.queue_free)

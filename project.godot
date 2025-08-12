@@ -10,12 +10,20 @@ config_version=5
 
 [application]
 
-config/name="my little processor"
+config/name="Logic Sim"
+config/version="1.0.0"
 run/main_scene="uid://crsbbqpce1h1w"
 run/enable_alt_space_menu=true
+config/use_custom_user_dir=true
+config/custom_user_dir_name="PhairZ"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/low_processor_mode=true
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.204, 0.207, 0.24, 1)
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="uid://3kg4fuuhq5oy"
+config/windows_native_icon="res://favicon.ico"
 
 [debug]
 
@@ -28,12 +36,13 @@ window/energy_saving/keep_screen_on=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/per_pixel_transparency/allowed=true
+window/handheld/orientation=4
 window/vsync/vsync_mode=0
 
 [gui]
 
-theme/custom="uid://cu2lomasthsnw"
 theme/default_font_generate_mipmaps=true
+theme/custom="uid://cu2lomasthsnw"
 
 [input]
 
@@ -61,11 +70,10 @@ exit_inspection={
 [physics]
 
 2d/run_on_separate_thread=true
-3d/run_on_separate_thread=true
 common/physics_ticks_per_second=1000
+3d/physics_engine="Dummy"
 
 [rendering]
 
-anti_aliasing/quality/msaa_2d=3
+anti_aliasing/quality/msaa_2d=2
 environment/defaults/default_clear_color=Color(0.204, 0.207, 0.24, 1)
-anti_aliasing/quality/use_debanding=true

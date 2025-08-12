@@ -9,7 +9,7 @@ class_name Master extends Control
 const DRAG_COMPONENT: PackedScene = preload("uid://b1plp2e5g4ulg")
 const USER_COMPONENT: PackedScene = preload("uid://xjxlk2qmumu0")
 const LOGIC_PANEL: PackedScene = preload("uid://b6yx30n0a22xx")
-const SAVE_DIR: String = "res://saves/"
+const SAVE_DIR: String = "user://saves/"
 const SAVE_FILE: String = SAVE_DIR + "data.res"
 const GRID_COLOR: Color = Color(0.187, 0.187, 0.187)
 

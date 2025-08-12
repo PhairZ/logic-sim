@@ -13,9 +13,12 @@ class_name IOButton extends Button
 		connection_point.output = value
 		
 		if output:
-			toggled.connect(func(toggled_on: bool) -> void: connection_point.bit = toggled_on)
+			toggled.connect(
+				func(toggled_on: bool) -> void:
+					connection_point.bit = toggled_on
+			)
 		else :
-			connection_point.flipped.connect(func(bit: int) -> void: button_pressed = bit)
+			connection_point.flipped.connect(func(bit: bool) -> void: button_pressed = bit)
 
 @onready var connection_point: ConnectionPoint = $ConnectionPoint
 @onready var line_2d: Line2D = $Line2D

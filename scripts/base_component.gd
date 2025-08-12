@@ -134,8 +134,9 @@ func update_input(value: int) -> void:
 			if logic_panel:
 				point.start_connection.connect(logic_panel.start_connection.bind(point))
 				point.flipped.connect(
-					func(bit: int) -> void:
-						input = (input & ~(1 << point.get_index())) | bit
+					func(bit: bool) -> void:
+						input &= input & ~(1 << point.get_index())
+						input |= (int(bit) << point.get_index())
 				)
 			
 			input_conns.add_child(point)

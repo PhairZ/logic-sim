@@ -1,7 +1,7 @@
 class_name ConnectionPoint extends Control
 
 signal start_connection
-signal flipped(bit: int)
+signal flipped(bit: bool)
 
 @export var output: bool = false
 
@@ -44,7 +44,7 @@ func set_bit(value: bool) -> void:
 		for point: ConnectionPoint in connected_points:
 			update_line(point)
 		
-		flipped.emit(int(value) << get_index())
+		flipped.emit(bit)
 		
 		if connected_points and output:
 			for point: ConnectionPoint in connected_points:
