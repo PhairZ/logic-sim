@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Logic Sim"
-config/version="1.0.0"
+config/version="1.0.1"
 run/main_scene="uid://crsbbqpce1h1w"
 run/enable_alt_space_menu=true
 config/use_custom_user_dir=true
