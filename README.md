@@ -10,12 +10,14 @@ This is a Logic-gate Simulation made entirely in Godot 4 with GDScript only.
  * Right click on a Connection point to disconnect it.
  * Right click while dragging a Component to cancel displacement.
  * Double left click on a custom Component to inspect it.
+ * Press `Q` on your Keyboard while inspecting to get out of the current Component.
+ * Press `ESC` on your Keyboard while inspecting close Inspection.
 
 ## Example save file:
   Copy the [`data.res`](data.res) file in the base directory, and paste it in the save file directory.  
   The save file directory is at `user://saves`. `user://` is a custom Godot user data folder by the name of [PhairZ](https://github.com/PhairZ).  
   #### depending on the Operating system you use the directory could be at:
-    
+	
   * Windows: `%AppData%\PhairZ\saves`
   * MacOS: `~/Library/Application Support/PhairZ/saves`
   * Linux/BSD: `~/.local/share/Phairz/saves`
